@@ -1,3 +1,8 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html,
 body,
 section,
@@ -5,20 +10,46 @@ section,
     height: 100%;
 }
 
-#pad {
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+#md-pad {
+    width: 48vw;
+    height: 96vh;
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 
-    border: none;
+    padding: 10px;
+
+    border: 1px solid lightgray;
+    border-radius: 3px;
+    resize: none;
     overflow: auto;
     outline: none;
-    resize: none;
-
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
 }
 
 #markdown {
+    width: 48vw;
+    height: 96vh;
     overflow: auto;
-    border-left: 1px solid black;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    border: 1px solid lightgray;
+    /* background-color: rgb(243, 243, 243); */
 }
+
+#markdown > * {
+    /* height: 100%; */
+    margin: auto;
+    overflow: hidden;
+    padding: 15px;
+}
+/* 
+#markdown, #markdown > * {
+    background-color: rgb(250, 250, 250);
+} */

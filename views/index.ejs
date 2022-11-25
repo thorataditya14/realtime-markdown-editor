@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Realtime Markdown Viewer</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body class="container-fluid">
+
+    <section class="row">
+        <textarea class="col-md-6 full-height" id="md-pad">
+
+# Realtime Markdown Editor
+
+
+### What is this?
+
+Type markdown into the left box and immediately see it in the right box. Send your friends link to a markdown pad URL and edit the document at same time!
+
+
+### How to use this?
+
+Type the document name after slash in "https://realtimemarkdown.herokuapp.com/" and start creating markdown.
+
+
+### How was this built?
+
+This markdown editor uses the following:
+
+- [ShareJS](http://sharejs.org/) - for realtime textbox editing
+
+- [Node.js](https://nodejs.org/) - backend framework
+
+- [Redis](http://redis.io/) - to store markdown documents
+
+            </textarea>
+        <div class="col-md-6 full-height" id="markdown"></div>
+    </section>
+
+    <script src="https://cdn.rawgit.com/showdownjs/showdown/1.0.2/dist/showdown.min.js"></script>
+    <script src="/channel/bcsocket.js"></script>
+    <script src="/share/share.uncompressed.js"></script>
+    <script src="/share/textarea.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

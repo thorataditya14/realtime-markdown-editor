@@ -1,10 +1,10 @@
 window.onload = function () {
     var converter = new showdown.Converter();
-    var pad = document.getElementById('pad');
+    var mdPad = document.getElementById('md-pad');
     var markdownArea = document.getElementById('markdown');
 
     // make the tab act like a tab
-    pad.addEventListener('keydown', function (e) {
+    mdPad.addEventListener('keydown', function (e) {
         if (e.keyCode === 9) { // tab was pressed
             // get caret position/selection
             var start = this.selectionStart;
@@ -30,14 +30,14 @@ window.onload = function () {
 
     // convert text area to markdown html
     var convertTextAreaToMarkdown = function () {
-        var markdownText = pad.value;
+        var markdownText = mdPad.value;
         previousMarkdownValue = markdownText;
         html = converter.makeHtml(markdownText);
         markdownArea.innerHTML = html;
     };
 
     var didChangeOccur = function () {
-        if (previousMarkdownValue != pad.value) {
+        if (previousMarkdownValue != mdPad.value) {
             return true;
         }
         return false;
@@ -51,14 +51,14 @@ window.onload = function () {
     }, 1000);
 
     // convert textarea on input change
-    pad.addEventListener('input', convertTextAreaToMarkdown);
+    mdPad.addEventListener('input', convertTextAreaToMarkdown);
 
     // ignore if on home page
     if (document.location.pathname.length > 1) {
         // implement share js
         var documentName = document.location.pathname.substring(1);
         sharejs.open(documentName, 'text', function (error, doc) {
-            doc.attach_textarea(pad);
+            doc.attach_textarea(mdPad);
             convertTextAreaToMarkdown();
         });
     }

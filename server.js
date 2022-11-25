@@ -11,11 +11,11 @@ app.use(express.static(__dirname + '/public'));
 
 // routes for app
 app.get('/', function (req, res) {
-    res.render('pad');
+    res.render('index');
 });
 
 app.get('/(:id)', function (req, res) {
-    res.render('pad');
+    res.render('index');
 });
 
 // get sharejs dependencies
